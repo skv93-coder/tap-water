@@ -27,12 +27,50 @@
 .App-link {
   color: #61dafb;
 }
-
+.bucket_animation {
+  background-color: green;
+  transition: 1s ease;
+}
+.bucket {
+  width: 200px;
+  height: 450px;
+  margin: 0 24px;
+  display: flex;
+  align-items: end;
+  border-radius: 8px;
+  border-bottom: 2px solid;
+  border: 2px solid;
+}
+.water-tank {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+.btn {
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 16px;
+  border: none;
+}
+.btn-remove {
+  background-color: #bb3030;
+  color: white;
+}
+.btn-add {
+  background-color: rgb(24, 120, 216);
+  color: white;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .water-tank {
+    flex-direction: column;
+    align-items: center;
   }
 }
