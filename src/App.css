@@ -55,10 +55,25 @@
 .btn-remove {
   background-color: #bb3030;
   color: white;
+  margin-left: 23px;
 }
 .btn-add {
   background-color: rgb(24, 120, 216);
   color: white;
+}
+.app_heading {
+  text-align: center;
+}
+.btn-container {
+  margin: 0 24px;
+  display: flex;
+  justify-content: space-around;
+}
+.bucket-container {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  margin-top: 12px;
 }
 @keyframes App-logo-spin {
   from {

@@ -30,9 +30,9 @@ export default function Watertank() {
   return (
     <div className="water-tank">
       {buckets.map((bucket, i) => (
-        <div style={{ flex: 1,display:'grid',placeItems:'center',marginTop:'12px' }}>
-          <Bucket val={bucket.waterInBucket} />
-          <div style={{ margin: "0 24px", display: "flex",justifyContent:'space-around' }}>
+        <div className="bucket-container">
+          <Bucket val={bucket.waterInBucket} buffer={bucket.waterInBuffer} />
+          <div className="btn-container ">
             <Button
               label="Add"
               handleClick={() => {
@@ -40,15 +40,13 @@ export default function Watertank() {
               }}
               className="btn-add"
             />
-            <div style={{ marginLeft: "23px" }}>
-              <Button
-                label="Remove"
-                handleClick={() => {
-                  handleRemoveBtnClick(i);
-                }}
-                className="btn-remove"
-              />
-            </div>
+            <Button
+              label="Remove"
+              handleClick={() => {
+                handleRemoveBtnClick(i);
+              }}
+              className="btn-remove"
+            />
           </div>
         </div>
       ))}
