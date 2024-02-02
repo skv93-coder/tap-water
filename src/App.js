@@ -5,7 +5,7 @@ import ContextProvider from "./store";
 function App() {
   return (
     <ContextProvider>
-      <h1 style={{textAlign:'center'}}>Water bucket challenge</h1>
+      <h1 className="app_heading">Water bucket challenge</h1>
       <Watertank />
     </ContextProvider>
   );

@@ -53,23 +53,18 @@ const updateBucketAfterTimeUp = (bucketState) => {
       );
     }
   }
-  console.log("oldBucketsStatedBucketsState", newBucketState);
 
   for (let i = 0; i < newBucketState.length; i++) {
-    if (
-      newBucketState[i].waterInBuffer &&
-      newBucketState[i].waterInBucket < capacityOfBucket
-    ) {
-      newBucketState[i].waterInBucket += Math.min(
-        amtOfWaterIncreaseOnClick,
-        newBucketState[i].waterInBuffer
-      );
-      newBucketState[i].waterInBuffer -= Math.min(
-        amtOfWaterIncreaseOnClick,
-        newBucketState[i].waterInBuffer
-      );
-    }
+    const removableWater = Math.min(
+      amtOfWaterIncreaseOnClick,
+      newBucketState[i].waterInBuffer
+    );
+    const capacityLeft = capacityOfBucket - newBucketState[i].waterInBucket;
+
+    newBucketState[i].waterInBucket += Math.min(removableWater, capacityLeft);
+    newBucketState[i].waterInBuffer -= Math.min(removableWater, capacityLeft);
   }
+
   return newBucketState;
 };
 
