@@ -60,6 +60,7 @@
 .btn-add {
   background-color: rgb(24, 120, 216);
   color: white;
+  padding: 0px 16px;
 }
 .app_heading {
   text-align: center;
