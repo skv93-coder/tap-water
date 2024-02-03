@@ -30,21 +30,23 @@ export default function Watertank() {
   return (
     <div className="water-tank">
       {buckets.map((bucket, i) => (
-        <div className="bucket-container">
+        <div className="bucket-container" id={i}>
           <Bucket val={bucket.waterInBucket} buffer={bucket.waterInBuffer} />
           <div className="btn-container ">
             <Button
               label="Add"
-              handleClick={() => {
+              className="btn-add"
+              handleSpecialClick={() => {
                 handleAddBtnClick(i);
               }}
-              className="btn-add"
+              handleClick={() => {}}
             />
             <Button
               label="Remove"
               handleClick={() => {
                 handleRemoveBtnClick(i);
               }}
+              handleSpecialClick={() => {}}
               className="btn-remove"
             />
           </div>
