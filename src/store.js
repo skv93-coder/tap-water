@@ -69,16 +69,16 @@ const updateBucketAfterTimeUp = (bucketState) => {
 };
 
 const bucketReducer = (prev, action) => {
-  console.log("prev", prev);
   switch (action.type) {
     case ADD_WATER_BUFFER: {
       const newBuckets = [...prev];
-      const idOfAffectedBucket = action.data.id;
-      newBuckets[idOfAffectedBucket] = {
-        ...newBuckets[idOfAffectedBucket],
-        waterInBuffer:
-          newBuckets[idOfAffectedBucket].waterInBuffer +
-          amtOfWaterIncreaseOnClick,
+      const { id } = action.data;
+      const capacityLeft = capacityOfBucket - newBuckets[id].waterInBucket;
+      const newWater = Math.min(amtOfWaterIncreaseOnClick, capacityLeft);
+      const bufferWater = amtOfWaterIncreaseOnClick - newWater;
+      newBuckets[id] = {
+        waterInBucket: newBuckets[id].waterInBucket + newWater,
+        waterInBuffer: newBuckets[id].waterInBuffer + bufferWater,
       };
       return newBuckets;
     }
