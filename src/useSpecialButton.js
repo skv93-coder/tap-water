@@ -24,10 +24,18 @@ export const useSpecialButton = (fc, time) => {
       ref.current = null;
     }
   };
+  const onTouchCancel = () => {
+    if (ref.current) {
+      clearInterval(ref.current);
+      ref.current = null;
+    }
+  };
   return {
     onMouseDown,
     onMouseUp,
     onTouchStart,
     onTouchEnd,
+    onTouchCancel,
   };
 };
+
