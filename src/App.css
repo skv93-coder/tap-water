@@ -29,7 +29,7 @@
 }
 .bucket_animation {
   background-color: green;
-  transition: 1s ease;
+  transition: 1s linear;
 }
 .bucket {
   width: 200px;
