@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   ADD_WATER_BUFFER,
   EMPTY,
@@ -23,9 +23,9 @@ export default function Watertank() {
   const handleRemoveBtnClick = (id) => {
     dispatch({ type: EMPTY, data: { id } });
   };
-  const handleTimeUP = () => {
+  const handleTimeUP = useCallback(() => {
     dispatch({ type: ONE_SECOND_UP });
-  };
+  }, [dispatch]);
   useTimeInertVal(handleTimeUP, 1000);
   return (
     <div className="water-tank">
