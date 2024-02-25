@@ -28,7 +28,6 @@
   color: #61dafb;
 }
 .bucket_animation {
-  background-color: green;
   transition: 1s linear;
 }
 .bucket {
